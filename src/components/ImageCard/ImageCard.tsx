@@ -1,6 +1,12 @@
+import Image from "../../types/Image";
 import styles from "./ImageCard.module.css";
 
-const ImageCard = ({ image, onClick }) => {
+interface ImageCardProps {
+  image: Image;
+  onClick: () => void;
+}
+
+const ImageCard = ({ image, onClick }: ImageCardProps) => {
   return (
     <li onClick={onClick} className={styles.imageItem}>
       <img

@@ -1,6 +1,12 @@
 import styles from "./LoadMoreBtn.module.css";
 
-const LoadMoreBtn = ({ onClick, totalPages, page }) => {
+interface LoadMoreBtnProps {
+  onClick: () => void;
+  totalPages: number;
+  page: number;
+}
+
+const LoadMoreBtn = ({ onClick, totalPages, page }: LoadMoreBtnProps) => {
   return (
     <div>
       <span>

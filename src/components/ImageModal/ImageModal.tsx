@@ -1,12 +1,18 @@
+import Image from "../../types/Image";
 import styles from "./ImageModal.module.css";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
 
-const ImageModal = ({ closeModal, image }) => {
+interface ImageModalProps {
+  image: Image | null;
+  closeModal: () => void;
+}
+
+const ImageModal = ({ closeModal, image }: ImageModalProps) => {
   if (!image) return null;
 
-  const handleBackdropClick = (e) => {
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       closeModal();
     }
@@ -16,7 +22,7 @@ const ImageModal = ({ closeModal, image }) => {
 
   return (
     <Modal
-      isOpen={image}
+      isOpen={!!image}
       onRequestClose={closeModal}
       overlayClassName={styles.overlay}
       className={styles.modal}
@@ -31,7 +37,7 @@ const ImageModal = ({ closeModal, image }) => {
           <div className={styles.info}>
             <span>{image.likes} likes, </span>
             <span>{image.description}, </span>
-            <span>Author: {image.user.name} </span>
+            <span>Author: {image.user?.name} </span>
           </div>
         </div>
       </div>

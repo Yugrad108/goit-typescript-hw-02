@@ -5,7 +5,10 @@ const override = {
   margin: "0 auto",
 };
 
-const Loader = ({ loading }) => {
+interface LoaderProps {
+  loading: boolean;
+}
+const Loader = ({ loading }: LoaderProps) => {
   return (
     <div>
       <RingLoader
