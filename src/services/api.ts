@@ -3,15 +3,11 @@ import Image from "../types/Image";
 
 const BASE_URL = "https://api.unsplash.com";
 const ACCESS_KEY = import.meta.env.VITE_UNSPLASH_KEY;
-
-// Добавляем интерфейс для структуры ответа от Unsplash
 interface UnsplashResponse {
   total: Number;
   total_pages: Number;
   results: Image[];
 }
-
-//Типизация возвращаемого Promise от fetchImages
 
 export const fetchImages = async (
   query: string,
