@@ -39,6 +39,9 @@ const ImageModal = ({ closeModal, image }: ImageModalProps) => {
             <span>{image.description}, </span>
             <span>Author: {image.user?.name} </span>
           </div>
+          <button className={styles.modalCloseButton} onClick={closeModal}>
+            X
+          </button>
         </div>
       </div>
     </Modal>

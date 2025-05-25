@@ -8,6 +8,7 @@ import ImageModal from "./components/ImageModal/ImageModal";
 import { fetchImages } from "./services/api";
 import { Toaster } from "react-hot-toast";
 import Image from "./types/Image";
+import ScrollTopBtn from "./components/ScrollTopBtn/ScrollTopBtn";
 
 function App() {
   const [images, setImages] = useState<Image[]>([]);
@@ -93,6 +94,7 @@ function App() {
         {modalIsOpen && (
           <ImageModal image={selectedImage} closeModal={closeModal} />
         )}
+        <ScrollTopBtn />
       </div>
     </>
   );

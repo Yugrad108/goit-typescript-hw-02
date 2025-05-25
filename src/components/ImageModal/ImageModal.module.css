@@ -16,9 +16,14 @@
 }
 
 .image {
-  border-radius: 8px;
+  /* border-radius: 8px;
   height: auto;
-  margin: 0;
+  margin: 0; */
+  width: 100%; /* Картинка займет всю ширину контейнера */
+  height: auto; /* Сохраняет пропорции */
+  max-height: 80vh; /* Чтобы не вылезала за окно по высоте */
+  object-fit: contain; /* Картинка будет вписана полностью без обрезки */
+  display: block; /* Убирает возможные отступы */
 }
 
 .imageContainer {
@@ -26,6 +31,10 @@
   padding: 4px 4px 20px 4px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  max-width: 90vw; /* Максимальная ширина не больше 90% от ширины окна */
+  max-height: 90vh; /* Максимальная высота не больше 90% от высоты окна */
+  overflow: visible; /* Чтобы кнопка не обрезалась */
 }
 
 .info {
@@ -33,4 +42,37 @@
   color: #333;
   padding-top: 16px;
   background-color: #fff;
+}
+
+.modalCloseButton {
+  /* position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #333;
+  z-index: 10; */
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px; /* ширина круга */
+  height: 28px; /* высота круга */
+  border-radius: 50%; /* делает из кнопки круг */
+  background: #eeeeee9d; /* фон для видимости */
+  border: none;
+  cursor: pointer;
+  font-size: 18px; /* размер крестика внутри */
+  color: #333;
+  display: flex; /* чтобы центрировать крестик */
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* опционально тень */
+  padding: 0;
+
+  &:hover {
+    /* background: none; */
+    color: #d4d4d4;
+  }
 }
